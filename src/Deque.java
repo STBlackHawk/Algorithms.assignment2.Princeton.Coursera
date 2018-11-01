@@ -127,6 +127,7 @@ public class Deque<Item> implements Iterable<Item> {
             current = current.next;
             return (Item) item;
 
+
         }
 
 
