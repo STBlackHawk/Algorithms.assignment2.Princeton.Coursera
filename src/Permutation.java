@@ -10,7 +10,7 @@ public class Permutation {
 
         RandomizedQueue<String> Random = new RandomizedQueue();
 
-        while (!StdIn.isEmpty());{
+        while(!StdIn.isEmpty()){
 
             String i = StdIn.readString();
 
@@ -23,7 +23,7 @@ public class Permutation {
 
         }
 
-        for (int j=0; j < k; j++) {
+        for (int j = 0; j < k; j++) {
             StdOut.println(Random.dequeue());
         }
 

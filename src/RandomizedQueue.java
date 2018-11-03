@@ -28,8 +28,8 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         Item[] temp = (Item[]) new Object[capacity];
         for(int i = 0; i < size; i++){
             temp[i] = rDeque[i];
-            rDeque = temp;
         }
+        rDeque = temp;
 
     }
 
@@ -41,6 +41,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         if (size == rDeque.length) resize(2*rDeque.length);
 
         rDeque[size++] = item;
+
     }
 
     public Item dequeue(){
@@ -61,7 +62,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
     public Item sample(){
         if(isEmpty()) throw new NoSuchElementException("dequeue is empty");
-        return rDeque[StdRandom.uniform(size)];
+        return rDeque[StdRandom.uniform(size-1)];
     }
 
 
@@ -79,7 +80,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         private Item holder = null;
 
         public RandomizedQueueIterator(){
-            pointer = size-1;
+            pointer = size - 1;
         }
 
 
@@ -93,9 +94,9 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
             Item temp = rDeque[StdRandom.uniform(size)];
             if(temp == holder){
                 next();
+            } else {
+                pointer--;
             }
-
-            pointer--;
             return temp;
 
         }
